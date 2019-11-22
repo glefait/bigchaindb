@@ -12,7 +12,7 @@ from bigchaindb.web.views import (
     transactions as tx,
     outputs,
     validators,
-    utils
+    latest
 )
 
 
@@ -42,6 +42,7 @@ ROUTES_API_V1 = [
     r('outputs/', outputs.OutputListApi),
     r('validators/', validators.ValidatorsApi),
     r('clean', utils.CleanApi),
+    r('latest/block', latest.LatestBlockApi),
 ]
 
 
