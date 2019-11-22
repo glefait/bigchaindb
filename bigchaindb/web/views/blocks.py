@@ -34,19 +34,6 @@ class BlockApi(Resource):
         return block
 
 
-class BlockLatestApi(Resource):
-    def get(self):
-        pool = current_app.config['bigchain_pool']
-
-        with pool() as bigchain:
-            block = bigchain.get_latest_block()
-
-        if not block:
-            return make_error(404)
-
-        return block
-
-
 class BlockListApi(Resource):
     def get(self):
         """API endpoint to get the related blocks for a transaction.
