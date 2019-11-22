@@ -162,6 +162,16 @@ def _remove_text_score(asset):
 
 
 @register_query(LocalMongoDBConnection)
+def kv_search(conn, key, value, limit=0, table='assets'):
+    cursor = conn.run(
+        conn.collection(table)
+        .find({}, {key: value})
+        .limit(limit))
+
+    return cursor
+
+
+@register_query(LocalMongoDBConnection)
 def get_owned_ids(conn, owner):
     cursor = conn.run(
         conn.collection('transactions').aggregate([

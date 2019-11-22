@@ -247,6 +247,12 @@ def text_search(conn, search, *, language='english', case_sensitive=False,
 
 
 @singledispatch
+def kv_search(conn, k, v, limit=0, table='assets'):
+    raise OperationError('This query is only supported when running '
+                         'BigchainDB with MongoDB as the backend.')
+
+
+@singledispatch
 def get_latest_block(conn):
     """Get the latest commited block i.e. block with largest height"""
 
