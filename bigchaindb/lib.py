@@ -410,6 +410,20 @@ class BigchainDB(object):
         return backend.query.text_search(self.connection, search, limit=limit,
                                          table=table)
 
+    def kv_search(self, key, value=None, limit=0, table='assets'):
+        """Return an iterator of assets that match the text search
+
+        Args:
+            key (str): Text search string to query the text index
+            value (str, optional): value to search, could be None
+
+        Returns:
+            iter: An iterator of assets that match the key/value search.
+        """
+        return backend.query.kv_search(self.connection, key, value=value, limit=limit,
+                                       table=table)
+
+
     def get_assets(self, asset_ids):
         """Return a list of assets that match the asset_ids
 

@@ -247,7 +247,7 @@ def text_search(conn, search, *, language='english', case_sensitive=False,
 
 
 @singledispatch
-def kv_search(conn, k, v, limit=0, table='assets'):
+def kv_search(conn, key, value, limit=0, table='assets'):
     raise OperationError('This query is only supported when running '
                          'BigchainDB with MongoDB as the backend.')
 

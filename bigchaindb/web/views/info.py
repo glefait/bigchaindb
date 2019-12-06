@@ -49,6 +49,7 @@ def get_api_v1_info(api_prefix):
         'transactions': '{}transactions/'.format(api_prefix),
         'blocks': '{}blocks/'.format(api_prefix),
         'assets': '{}assets/'.format(api_prefix),
+        'assetskv': '{}assetskv/'.format(api_prefix),
         'outputs': '{}outputs/'.format(api_prefix),
         'streams': websocket_root,
         'metadata': '{}metadata/'.format(api_prefix),

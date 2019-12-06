@@ -41,7 +41,6 @@ ROUTES_API_V1 = [
     r('transactions', tx.TransactionListApi),
     r('outputs/', outputs.OutputListApi),
     r('validators/', validators.ValidatorsApi),
-    r('clean', utils.CleanApi),
     r('latest/block', latest.LatestBlockApi),
 ]
 

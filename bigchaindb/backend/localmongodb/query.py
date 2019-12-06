@@ -165,10 +165,10 @@ def _remove_text_score(asset):
 def kv_search(conn, key, value, limit=0, table='assets'):
     cursor = conn.run(
         conn.collection(table)
-        .find({}, {key: value})
+        .find({key: value}, {'_id': False})
         .limit(limit))
 
-    return cursor
+    return [o for o in cursor]
 
 
 @register_query(LocalMongoDBConnection)

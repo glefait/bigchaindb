@@ -66,13 +66,13 @@ class AssetKVListApi(Resource):
             A list of assets that match the query.
         """
         parser = reqparse.RequestParser()
-        parser.add_argument('k', type=str, required=True)
-        parser.add_argument('v', type=str, required=True)
+        parser.add_argument('key', type=str, required=True)
+        parser.add_argument('value', type=str, required=True)
         parser.add_argument('limit', type=int)
         args = parser.parse_args()
 
-        if not args['k'] or not args['v']:
-            return make_error(400, 'k and v cannot be empty')
+        if not args['key'] or not args['value']:
+            return make_error(400, 'key and value cannot be empty')
         if not args['limit']:
             # if the limit is not specified do not pass None to `text_search`
             del args['limit']
